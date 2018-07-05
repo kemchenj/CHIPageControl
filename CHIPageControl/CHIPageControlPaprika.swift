@@ -46,7 +46,7 @@ open class CHIPageControlPaprika: CHIBasePageControl {
         super.init(frame: frame)
     }
 
-    override func updateNumberOfPages(_ count: Int) {
+    override open func updateNumberOfPages(_ count: Int) {
         elements.forEach { $0.removeFromSuperlayer() }
         elements.forEach() { $0.removeFromSuperlayer() }
         elements = [CHILayer]()
@@ -91,7 +91,7 @@ open class CHIPageControlPaprika: CHIBasePageControl {
         update(for: progress)
     }
     
-    override func update(for progress: Double) {
+    override open func update(for progress: Double) {
         guard let min = self.min,
             let max = self.max,
             numberOfPages > 1 else {

@@ -42,7 +42,7 @@ open class CHIPageControlAji: CHIBasePageControl {
         super.init(frame: frame)
     }
 
-    override func updateNumberOfPages(_ count: Int) {
+    override open func updateNumberOfPages(_ count: Int) {
         inactive.forEach { $0.removeFromSuperlayer() }
         inactive = [CHILayer]()
         inactive = (0..<count).map {_ in
@@ -81,7 +81,7 @@ open class CHIPageControlAji: CHIBasePageControl {
         update(for: progress)
     }
 
-    override func update(for progress: Double) {
+    override open func update(for progress: Double) {
         guard let min = inactive.first?.frame,
               let max = inactive.last?.frame,
               numberOfPages > 1,

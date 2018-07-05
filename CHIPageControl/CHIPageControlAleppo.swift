@@ -43,7 +43,7 @@ open class CHIPageControlAleppo: CHIBasePageControl {
         super.init(frame: frame)
     }
 
-    override func updateNumberOfPages(_ count: Int) {
+    override open func updateNumberOfPages(_ count: Int) {
         inactive.forEach { $0.removeFromSuperlayer() }
         inactive = [CHILayer]()
         inactive = (0..<count).map {_ in
@@ -57,7 +57,7 @@ open class CHIPageControlAleppo: CHIBasePageControl {
         self.invalidateIntrinsicContentSize()
     }
 
-    override func update(for progress: Double) {
+    override open func update(for progress: Double) {
         guard progress >= 0 && progress <= Double(numberOfPages - 1),
             let firstFrame = self.inactive.first?.frame,
             numberOfPages > 1 else { return }

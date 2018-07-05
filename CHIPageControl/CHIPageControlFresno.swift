@@ -45,7 +45,7 @@ open class CHIPageControlFresno: CHIBasePageControl {
         super.init(frame: frame)
     }
 
-    override func updateNumberOfPages(_ count: Int) {
+    override open func updateNumberOfPages(_ count: Int) {
         elements.forEach { $0.removeFromSuperlayer() }
         elements = [CHILayer]()
         elements = (0..<count).map {_ in
@@ -89,7 +89,7 @@ open class CHIPageControlFresno: CHIBasePageControl {
         update(for: progress)
     }
 
-    override func update(for progress: Double) {
+    override open func update(for progress: Double) {
         guard let min = self.min,
             let max = self.max,
             progress >= 0 && progress <= Double(numberOfPages - 1),
